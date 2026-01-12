@@ -10,7 +10,7 @@ def details():
         'message' : 'Hello World - details',
         'hostname': socket.gethostname(),
         'time'    : datetime.datetime.now(),
-        'action': 'Success'
+        'action': 'Success from details endpoint'
     })
 
 @app.route('/api/v1/healthz')
