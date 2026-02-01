@@ -9,7 +9,7 @@ on:
 
 jobs:
   docker:
-    runs-on: self-hosted-runners-1
+    runs-on: self-hosted
     steps:
 
       - name: Shorten commit-id
