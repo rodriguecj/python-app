@@ -2,7 +2,7 @@ replicaCount: 1
 image:
   repository: rodriguecj/python-app
   pullPolicy: IfNotPresent
-  tag: d80daa26
+  tag: faeee27f
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
