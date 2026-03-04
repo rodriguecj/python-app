@@ -6,6 +6,11 @@ on:
       - src/**
     branches:
       - main
+  pull_request:
+    branches:
+      - main
+    paths:
+      - src/**  
 
 jobs:
   ci:
