@@ -12,6 +12,7 @@ def details():
         'time'    : datetime.datetime.now(),
         'action': 'Success from details endpoint: new version'
     })
+    
 
 @app.route('/api/v1/healthz')
 def health():
