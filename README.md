@@ -31,7 +31,9 @@ pip install -r requirements.txt
 pytest
 ```
 
-Die GitHub Action (`.github/workflows/cicd.yaml`) führt bei jedem Push/PR auf `main` ebenfalls `pytest` aus und bricht den Build bei fehlschlagenden Tests ab.
+Die GitHub Action (`.github/workflows/cicd.yaml`) führt bei jedem Push/PR auf `main`:
+- `pytest` aus und bricht den Build bei fehlschlagenden Tests ab.
+- eine Analyse des `Dockerfile` mit **Hadolint** durch. Bei Verstößen schlägt die CI-Pipeline ebenfalls fehl.
 
 ## Docker
 Image bauen und lokal testen:

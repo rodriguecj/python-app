@@ -1,0 +1,12 @@
+.git
+.github
+.venv
+__pycache__/
+*.py[cod]
+*.pytest_cache/
+.pytest_cache/
+tests/
+charts/
+k8s/
+Dockerfile
+README.md

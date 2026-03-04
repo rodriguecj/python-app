@@ -36,6 +36,11 @@ jobs:
         run: |
           pytest
 
+      - name: Hadolint Dockerfile
+        uses: hadolint/hadolint-action@v3.1.0
+        with:
+          dockerfile: Dockerfile
+          
       - name: Shorten commit-id
         shell: bash
         run: |
