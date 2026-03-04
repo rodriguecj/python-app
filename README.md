@@ -20,6 +20,19 @@ Nützliche Calls:
 - `curl http://localhost:5000/api/v1/healthz`
 - `curl http://localhost:5000/api/v1/details`
 
+## Tests
+Tests werden mit `pytest` im Ordner `tests/` ausgeführt.
+
+### Lokal ausführen
+```bash
+python -m venv .venv
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+pytest
+```
+
+Die GitHub Action (`.github/workflows/cicd.yaml`) führt bei jedem Push/PR auf `main` ebenfalls `pytest` aus und bricht den Build bei fehlschlagenden Tests ab.
+
 ## Docker
 Image bauen und lokal testen:
 ```bash
