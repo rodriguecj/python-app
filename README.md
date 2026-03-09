@@ -33,7 +33,8 @@ pytest
 
 Die GitHub Action (`.github/workflows/cicd.yaml`) führt bei jedem Push/PR auf `main`:
 - `pytest` aus und bricht den Build bei fehlschlagenden Tests ab.
-- eine Analyse des `Dockerfile` mit **Hadolint** durch. Bei Verstößen schlägt die CI-Pipeline ebenfalls fehl.
+- eine Analyse des `Dockerfile` mit **Hadolint** durch; bei Verstößen schlägt die CI-Pipeline fehl.
+- einen lokalen Build des Docker-Images und einen Security-Scan mit **Trivy** durch. Nur wenn keine Schwachstellen mit Schweregrad `HIGH` oder `CRITICAL` gefunden werden, wird das Image anschließend in Docker Hub gepusht.
 
 ## Docker
 Image bauen und lokal testen:
