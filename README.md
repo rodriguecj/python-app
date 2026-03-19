@@ -95,7 +95,7 @@ flowchart LR
       SEC[Secrets<br/>z.B. DB-URL, API-Keys]
       CM[ConfigMap<br/>App-Konfiguration]
       DEP[Deployment<br/>Python App Pods]
-      SVC[Service (ClusterIP/LoadBalancer)]
+      SVC[Service - ClusterIP oder LoadBalancer]
       ING[Ingress<br/>Route von außen]
 
       NS --> DEP
