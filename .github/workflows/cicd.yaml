@@ -1,16 +1,7 @@
 name: cicd
 
 on:
-  push:
-    paths:
-      - src/**
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
-    paths:
-      - src/**  
+  workflow_dispatch:
 
 jobs:
   ci:
