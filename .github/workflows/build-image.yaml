@@ -5,6 +5,10 @@ on:
     workflows: ["ci"]
     types:
       - completed
+  push:
+    branches: [ main, feature/*, develop, staging, production, release/* ]
+  pull_request:
+    branches: [ main, feature/*, develop, staging, production, release/* ]
       
 jobs:
   build-image:
