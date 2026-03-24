@@ -33,7 +33,7 @@ jobs:
           tags: rodriguecj/python-app:${{ steps.tag.outputs.tag }}
 
     - name: Trivy image scan
-      uses: aquasecurity/trivy-action@0.24.0
+      uses: aquasecurity/trivy-action@0.35.0
       with:
           image-ref: rodriguecj/python-app:${{ steps.tag.outputs.tag }}
           vuln-type: 'os,library'
