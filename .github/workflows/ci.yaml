@@ -1,10 +1,7 @@
 name: ci
 
 on:
-  push:
-    branches: [ main, feature/*, develop, staging, production, release/* ]
-  pull_request:
-    branches: [ main, feature/*, develop, staging, production, release/* ]
+  workflow_call:
 
 jobs:
   ci:

@@ -1,10 +1,11 @@
 name: deploy-dev
 
 on:
-  workflow_run:
-    workflows: ["build-image"]
-    types:
-      - completed
+  workflow_call:
+    inputs:
+      tag:
+        required: true
+        type: string
 
 jobs:
     deploy-dev:
@@ -28,14 +29,14 @@ jobs:
       - name: Modify values file - charts
         shell: bash
         run: |
-          echo ${{needs.build-image.outputs.image_tag}}
+          echo ${{ inputs.tag }}
           pip install yq
-          yq -Yi '.image.tag = "${{needs.build-image.outputs.image_tag}}"' charts/python-app/values.yaml
+          yq -Yi '.image.tag = "${{ inputs.tag }}"' charts/python-app/values.yaml
 
       - name: Commit changes
         uses: EndBug/add-and-commit@v9
         with:
-          message: 'Updates values.yaml with commit ${{needs.build-image.outputs.image_tag}}'
+          message: 'Updates values.yaml with commit ${{ inputs.tag }}'
 
       - name: ArgoCD Install
         shell: bash

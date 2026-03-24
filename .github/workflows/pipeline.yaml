@@ -1,0 +1,22 @@
+name: platform-pipeline
+
+on:
+  push:
+    branches: [ main, develop, staging, production, release/* ]
+  pull_request:
+    branches: [ main, develop, staging, production, release/* ]
+  workflow_dispatch:
+
+jobs:
+  ci:
+    uses: ./.github/workflows/ci.yaml
+
+  build:
+    needs: ci
+    uses: ./.github/workflows/build-image.yaml
+  
+  deploy-dev:
+    needs: build
+    uses: ./.github/workflows/deploy-dev.yml
+    with:
+      tag: ${{ needs.build.outputs.tag }}
