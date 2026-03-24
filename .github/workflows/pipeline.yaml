@@ -17,6 +17,6 @@ jobs:
   
   deploy-dev:
     needs: build
-    uses: ./.github/workflows/deploy-dev.yml
+    uses: ./.github/workflows/deploy.yaml
     with:
-      tag: ${{ needs.build.outputs.tag }}
+      tag: ${{ needs.build.outputs.image_tag }}
