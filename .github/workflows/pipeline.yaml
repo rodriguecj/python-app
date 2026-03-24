@@ -2,9 +2,9 @@ name: platform-pipeline
 
 on:
   push:
-    branches: [ main, develop, staging, production, release/* ]
+    branches: [ main, develop, staging, production, release/*, feature ]
   pull_request:
-    branches: [ main, develop, staging, production, release/* ]
+    branches: [ main, develop, staging, production, release/*, feature ]
   workflow_dispatch:
 
 jobs:
