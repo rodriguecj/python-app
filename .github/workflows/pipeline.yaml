@@ -1,0 +1,25 @@
+name: platform-pipeline
+
+on:
+  push:
+    branches: [ main, develop, staging, production, release/*, feature/* ]
+  pull_request:
+    branches: [ main, develop, staging, production, release/*, feature/* ]
+  workflow_dispatch:
+
+jobs:
+  ci:
+    uses: ./.github/workflows/ci.yaml
+    secrets: inherit
+
+  build:
+    needs: ci
+    uses: ./.github/workflows/build-image.yaml
+    secrets: inherit
+  
+  deploy-dev:
+    needs: build
+    uses: ./.github/workflows/deploy.yaml
+    secrets: inherit
+    with:
+      tag: ${{ needs.build.outputs.image_tag }}

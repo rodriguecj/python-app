@@ -1,19 +1,11 @@
 name: cicd
 
 on:
-  push:
-    paths:
-      - src/**
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
-    paths:
-      - src/**  
+  workflow_dispatch:
 
 jobs:
   ci:
+    if: false
     runs-on: ubuntu-latest
     steps:
 
@@ -81,6 +73,7 @@ jobs:
       commit_id: ${{ env.COMMIT_ID }}
 
   cd:
+    if: false
     needs: ci
     runs-on: self-hosted
     steps:
