@@ -10,13 +10,16 @@ on:
 jobs:
   ci:
     uses: ./.github/workflows/ci.yaml
+    secrets: inherit
 
   build:
     needs: ci
     uses: ./.github/workflows/build-image.yaml
+    secrets: inherit
   
   deploy-dev:
     needs: build
     uses: ./.github/workflows/deploy.yaml
+    secrets: inherit
     with:
       tag: ${{ needs.build.outputs.image_tag }}
